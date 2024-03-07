@@ -1,5 +1,5 @@
 import webbrowser
-import youtube_dl
+from yt_dlp import YoutubeDL 
 import tkinter as tki
 from tkinter import filedialog, messagebox, ttk
 import os
@@ -135,11 +135,10 @@ class Application(tki.Frame):
         self.get_button['text'] = 'ダウンロード中...'
         self.get_button['state'] = tki.DISABLED
         try:
-            ydl = youtube_dl.YoutubeDL({})
-            with ydl:
-                ydl.extract_info(str(url), download=True)
-        except youtube_dl.utils.DownloadError as e:
-            messagebox.showerror('Error',f'無効なURLです({e})')
+            with YoutubeDL() as ydl:
+                ydl.download([str(url)])
+        except:
+            messagebox.showerror('Error',f'無効なURLです()')
             self.get_button['state'] = tki.NORMAL
             self.get_button['text'] = 'ダウンロード'
         else:
@@ -156,11 +155,11 @@ class Application(tki.Frame):
         self.get_button['text'] = 'ダウンロード中...'
         self.get_button['state'] = tki.DISABLED
         try:
-            ydl = youtube_dl.YoutubeDL({'format': 'bestaudio[ext=mp3]/bestaudio[ext=m4a]/bestaudio'})
-            with ydl:
-                ydl.extract_info(str(url), download=True)
-        except youtube_dl.utils.DownloadError as e:
-            messagebox.showerror('Error', f'無効なURLです({e})')
+            ydl_ops = ({'outtmpl': '%(id)s'+'_.mp3', 'format': 'bestaudio'})
+            with YoutubeDL(ydl_ops) as ydl:
+                ydl.download([str(url)])
+        except:
+            messagebox.showerror('Error', f'無効なURLです()')
             self.get_button['state'] = tki.NORMAL
             self.get_button['text'] = 'ダウンロード'
 

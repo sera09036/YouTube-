@@ -4,4 +4,4 @@ pefile
 pyinstaller
 pyinstaller-hooks-contrib
 pywin32-ctypes
-youtube-dl
+yt_dlp
