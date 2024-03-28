@@ -6,6 +6,25 @@ import os
 import threading
 import sys
 
+data = '''R0lGODlhIAAgAMZvADY2Nv8AAP8BATQ8PP8CAv8DAzo8PC9AQDNAQP8GBjhBQUBA
+        QP8KCj1CQkFBQf8LCz1DQ0JCQv8MDENDQz1FRT1HR0RFRT5HR0NGRj5ISEZGRkdG
+        RkdHR0dISEJKSkpISElJSUpKSkNNTUtLS0xMTEZOTk1MTE1NTU5OTk9PT1BQUFFR
+        UVJSUkVWVlRUVEhYWFVVVV9hYf80NF1jY2VmZlBtbVpvb190dF92dmd0dF16emd9
+        fWF/f2l9ff9VVWuAgHV+fmyCgv9bW/9fX/9gYHuLi/9oaP9paf9qav9sbP9tbf9u
+        bvxvb5WPj/9xcXqYmPZ3d5qTk/Z5efl6enigoPh9fft9ffx+fpafn7Kbm6+dnbWe
+        nrqdnbWfn7afn7agoL2enregoLyfn7Ojo9ycnLunp8Olpf+dne2kpPygoNWursG0
+        tNOwsMK4uOOzs///////////////////////////////////////////////////
+        /////////////////yH5BAEKAH8ALAAAAAAgACAAAAf+gH+Cg4SFhoeIiYqLjI2O
+        j5CRhyOUISGUmJmalBsiLRaVlpQoKCksKyqkqqusIDNqZFEYKCorK6QjJCOCISmb
+        vxE/SgRmFSkhgpgnILwrv5sTPUYEYhcrg7kjy4Igzs+Z0UcF1dfJurq8KpokKiQk
+        Gg0UFAM6SQVhBx4I5pS62Zn+KNEYs6VLljVDBLjR0uWLlyYdLvULiAkFsj8GsPhg
+        8EBCggAgH4iUgOYFiH4qVJzQZJFQGitToFSREYCJFChTrrApcZLExRG+Kl4khMMG
+        FScF2tS4wUPQB13b/oTwNmooIQA7kBTgooAENqjMpFId0fLQkyXjrH3VdjGEOqGB
+        hyIEIRIATAYVPylKzFR20IllOc4IKQOh0iZ3m/r+OcHCpwkgRWJwmKjpb+KwKG5h
+        CuFggYZzJyiOuLS3H8pvz060fYuJRArRm9TxizoV9bdyf7LRHms7E+5sPpOh6P3L
+        VzKgKVS4gLEihfPn0KNLZwHDhXPi2DVJ2s69u/fvhQIBADs=
+        '''
+
 class Application(tki.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -189,13 +208,10 @@ class Application(tki.Frame):
 
 
 root = tki.Tk()
-root.title('YouTube+')
+root.title('YYouTube+')
 root.geometry('550x320')
 root.configure(bg='grey25')
-#pythonで実行する場合以下をアンコメント！
-root.iconbitmap(default='favicon.ico')
-
-#ビルドする場合以下をアンコメント！
-#root.iconbitmap(default=os.path.join(sys._MEIPASS,'favicon.ico'))
+root.resizable(False, False)
+root.tk.call('wm', 'iconphoto', root._w, tki.PhotoImage(data=data))
 app = Application(master=root)
 app.mainloop()
