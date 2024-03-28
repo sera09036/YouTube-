@@ -4,3 +4,4 @@ dist/
 media/
 yps/
 youtube+win64.zip
+*.spec
