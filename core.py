@@ -68,7 +68,7 @@ class Application(tki.Frame):
         button_reference = tki.Button(f0)
         button_reference['text'] = '参照'
         button_reference['bg'] = 'grey25'
-        button_reference['foreground'] = 'White'
+        button_reference['foreground'] = 'Red'
         button_reference['command'] = self.reference
         button_reference.pack(fill = 'x', padx=10, side = 'left')
 
@@ -111,7 +111,7 @@ class Application(tki.Frame):
         clear_btn = tki.Button(f0)
         clear_btn['text'] = 'Clear'
         clear_btn['bg'] = 'grey25'
-        clear_btn['foreground'] = 'White'
+        clear_btn['foreground'] = 'Red'
         clear_btn['command'] = self.crearurl
         clear_btn.pack(fill = 'x', padx=5, pady= 10, side = 'left')
 
@@ -209,7 +209,7 @@ class Application(tki.Frame):
 
 root = tki.Tk()
 root.title('YYouTube+')
-root.geometry('550x320')
+root.geometry('580x330')
 root.configure(bg='grey25')
 root.resizable(False, False)
 root.tk.call('wm', 'iconphoto', root._w, tki.PhotoImage(data=data))
